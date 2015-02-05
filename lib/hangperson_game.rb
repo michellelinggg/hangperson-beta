@@ -37,7 +37,7 @@ class HangpersonGame
   end
 
   def check_win_or_lose
-  	if @word.chars.sort == @guesses.chars.sort
+  	if (@guesses.length > 1) && (@word.tr(@guesses, "") == "")
   		return :win 
   	elsif @wrong_guesses.length == 7
   		return :lose 
