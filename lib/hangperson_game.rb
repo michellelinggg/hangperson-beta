@@ -22,6 +22,7 @@ class HangpersonGame
 
   def guess(new_guess)
   	if new_guess && new_guess.match(/^[[:alpha:]]$/)
+      new_guess = new_guess.downcase
 	  	if @guesses.include?(new_guess) || @wrong_guesses.include?(new_guess)
 	  		return false
 	  	end
@@ -31,9 +32,9 @@ class HangpersonGame
 	  		@wrong_guesses = @wrong_guesses + new_guess
 	  	end
 	  	return true
-	else
-		raise ArgumentError.new("Must guess a letter.")
-	end
+  	else
+  		raise ArgumentError.new("Must guess a letter.")
+  	end
   end
 
   def check_win_or_lose
